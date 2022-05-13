@@ -8,4 +8,10 @@ export default class ProductService {
     const products = await this.model.getAll();
     return products;
   };
+
+  public postProduct = async (user: IProduct): Promise<IProduct> => {
+    const { name, amount, orderId } = user;
+    const postedProduct = await this.model.postProduct({ name, amount, orderId });
+    return postedProduct;
+  };
 }
