@@ -15,9 +15,9 @@ export default class ProductController {
 
   public postProduct = async (req: Request, res: Response):
   Promise<Response | void> => {
-    const { name, amount, orderId } = req.body;
+    const { name, amount } = req.body;
     try {
-      const product = await this.service.postProduct({ name, amount, orderId });
+      const product = await this.service.postProduct({ name, amount });
       return res.status(201).json(product);
     } catch (err) {
       return res.status(500).json({ message: 'algo inesperado ocorreu' });
